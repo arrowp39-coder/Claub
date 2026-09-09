@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZEROX STORE | Gaming Marketplace</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="nav">
+    <a class="logo" href="#home">ZEROX<span>STORE</span></a>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#shop">Shop</a>
+      <a href="#why">Why Us</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="nav-btn" href="#shop">Browse Store</a>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">PREMIUM GAMING MARKETPLACE</p>
+        <h1>LEVEL UP.<br><span>PLAY HARDER.</span></h1>
+        <p class="sub">Your next gaming account is waiting. Explore the ZEROX STORE collection for Free Fire and Roblox.</p>
+        <div class="actions">
+          <a class="btn primary" href="#shop">Explore Store</a>
+          <a class="btn ghost" href="#contact">Contact Us</a>
+        </div>
+        <div class="stats">
+          <div><strong>24/7</strong><small>Support</small></div>
+          <div><strong>FF</strong><small>Free Fire</small></div>
+          <div><strong>RBX</strong><small>Roblox Soon</small></div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="glow"></div>
+        <div class="card-top">ZEROX / 2026</div>
+        <div class="crosshair">✦</div>
+        <div class="card-bottom">GAMING MARKETPLACE</div>
+      </div>
+    </section>
+
+    <section id="shop" class="section">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">SHOP</p>
+          <h2>Choose your <span>arsenal.</span></h2>
+        </div>
+        <p>Browse available categories. Product availability and terms are shown before purchase.</p>
+      </div>
+
+      <div class="products">
+        <article class="product featured">
+          <div class="product-art ff">FF</div>
+          <div class="product-info">
+            <span class="tag">AVAILABLE</span>
+            <h3>Free Fire Accounts</h3>
+            <p>Browse selected gaming accounts and find one that matches your collection.</p>
+            <button class="product-btn" id="toggle-ff" onclick="toggleListings()">View Products →</button>
+          </div>
+        </article>
+
+        <article class="product">
+          <div class="product-art rb">RBX</div>
+          <div class="product-info">
+            <span class="tag muted">COMING SOON</span>
+            <h3>Roblox Accounts</h3>
+            <p>Roblox inventory is being prepared for the ZEROX STORE marketplace.</p>
+            <button class="product-btn disabled" disabled>Coming Soon</button>
+          </div>
+        </article>
+      </div>
+
+      <div id="listings" class="listings" hidden>
+        <div class="listings-head">
+          <h3>Free Fire Accounts <span id="listing-count"></span></h3>
+          <div class="listing-sort">
+            <label for="sort-select">Sort by</label>
+            <select id="sort-select" onchange="renderListings()">
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="level-desc">Level: High to Low</option>
+            </select>
+          </div>
+        </div>
+        <div id="listing-grid" class="listing-grid"></div>
+      </div>
+    </section>
+
+    <section id="why" class="section why">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">THE ZEROX STANDARD</p>
+          <h2>Built to feel <span>different.</span></h2>
+        </div>
+      </div>
+      <div class="features">
+        <div><b>01</b><h3>Clear Listings</h3><p>Simple product information so you know what you're looking at.</p></div>
+        <div><b>02</b><h3>Fast Support</h3><p>Have a question? Reach out through your preferred contact channel.</p></div>
+        <div><b>03</b><h3>Professional Service</h3><p>A clean marketplace experience from browsing to support.</p></div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div>
+        <p class="eyebrow">GET IN TOUCH</p>
+        <h2>Need help?</h2>
+        <p>Contact ZEROX STORE for product questions, availability, or support.</p>
+      </div>
+      <div class="contact-actions">
+        <a class="btn primary" href="https://discord.com/" target="_blank" rel="noopener">Discord</a>
+        <a class="btn ghost" href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© 2026 ZEROX STORE</span>
+    <span>GAMING MARKETPLACE</span>
+  </footer>
+
+  <!-- Order modal -->
+  <div id="order-modal" class="modal-overlay" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" onclick="closeOrderModal()" aria-label="Close">✕</button>
+      <p class="eyebrow">RESERVE THIS ACCOUNT</p>
+      <h3 id="modal-title"></h3>
+      <div id="modal-summary" class="modal-summary"></div>
+
+      <form id="order-form" onsubmit="submitOrder(event)">
+        <label>Discord username or email
+          <input type="text" id="buyer-contact" required placeholder="e.g. yourname#0000 or you@email.com">
+        </label>
+        <label>Note for the seller (optional)
+          <textarea id="buyer-note" rows="2" placeholder="Preferred payment method, questions, etc."></textarea>
+        </label>
+        <button type="submit" class="btn primary" style="width:100%;justify-content:center;display:flex;margin-top:8px">Copy Order &amp; Message on Discord</button>
+      </form>
+      <p class="modal-fineprint">This copies your order details to your clipboard and opens our Discord — paste the details there to complete your purchase. No payment is collected on this page.</p>
+    </div>
+  </div>
+
+  <div id="notice" class="notice" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
